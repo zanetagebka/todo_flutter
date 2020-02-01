@@ -24,11 +24,40 @@ Map<String, dynamic> toMap() {
   map["dateCreated"] = _dateCreated;
 
   if (_id != null) {
-    
+    map[ "id"] = _id;
   }
+  return map;
+}
+
+DoItem.fromMap(Map<String, dynamic> map) {
+  this._itemName = map["itemName"];
+  this._dateCreated = map["dateCreated"];
+  this._id = map["id"];
 }
 
   Widget build(BuildContext context) {
-    return
+    return new Container(
+      margin: const EdgeInsets.all(8.0),
+      child: new Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(_itemName,
+          style: new TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16.9
+          ),),
+          new Container(
+            margin: const EdgeInsets.only(top: 5.0),
+            child: Text("Created at: $_dateCreated",
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 13.5,
+              fontStyle: FontStyle.italic
+            ),),
+          )
+        ],
+      ),
+    );
   }
 }
