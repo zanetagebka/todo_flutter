@@ -18,9 +18,8 @@ class DatabaseHelper {
 
   Future<Database> get db async {
     if (_db != null) {
-      return db;
+      return _db;
     }
-
     _db = await initDb();
     return _db;
   }
